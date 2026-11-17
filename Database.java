@@ -7,9 +7,10 @@ public class Database {
     private Map<String, Table> tables = new HashMap<>();
     private final String folder = "data";
     private Gson gson = new GsonBuilder()
-            .setDateFormat("yyyy-MM-dd")
-            .setPrettyPrinting()
-            .create();
+        .setDateFormat("yyyy-MM-dd")
+        .setPrettyPrinting()
+        .registerTypeAdapter(Map.class, new NumberFixer())
+        .create();
 
     public Database() {
         new File(folder).mkdirs();
