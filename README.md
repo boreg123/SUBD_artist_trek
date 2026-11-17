@@ -34,7 +34,6 @@ explicit        boolean     ненормативная лексика
 
 **Примеры**
 
-sql
 CREATE TABLE artists (id INT PRIMARY KEY, name STRING, country STRING, rating DOUBLE, active BOOLEAN);
 CREATE TABLE tracks (id INT PRIMARY KEY, artist_id INT, title STRING, duration DOUBLE, release_date STRING, explicit BOOLEAN);
 
@@ -59,7 +58,7 @@ SELECT * FROM tracks WHERE title = 'Smells Like Teen Spirit';
 
 **Тесты производительности**
 
-Замерял локально, таблица tracks на 10 000 строк, запрос SELECT * FROM tracks WHERE title = 'Track5000';
+Замерял на своём ноутбуке (Java 17, Windows 11), таблица tracks на 10 000 строк, запрос SELECT * FROM tracks WHERE title = 'Track5000';
 
 Без индекса   С индексом
 ~38 мс        ~2 мс
